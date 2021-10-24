@@ -1,7 +1,7 @@
 module.exports = async (socket, next) => {
 	const credentials = socket.handshake.auth;
 	if (credentials.username && credentials.session_id && credentials.profession) {
-		const results = await db_query('SELECT * FROM users WHERE username = ? AND session_id = ?', [credentials.username, credentials.session_id]);
+		const results = await db_query('SELECT * FROM users WHERE username = ? AND session_id = ? AND profession = ?', [credentials.username, credentials.session_id, credentials.profession]);
 		if (results.length == 1) {
 			console.log(credentials.username, credentials.profession, 'has joined.');
 			socket.data = credentials;

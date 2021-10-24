@@ -6,9 +6,11 @@ controllers.get_user_home = async (request, response) => {
 
 controllers.socket_token = async (request, response) => {
 	if (request.cookies.username && request.cookies.session_id) {
+		const results = await db_query('SELECT * FROM users WHERE username = ? AND session_id = ?', [request.cookies.username, request.cookies.session_id]);
 		response.json({
 			username: request.cookies.username,
-			session_id: request.cookies.session_id
+			session_id: request.cookies.session_id,
+			profession: results[0].profession
 		});
 	}
 }
