@@ -12,7 +12,7 @@ const compression = require('compression');
 const app = express();
 const express_server = http.createServer(app);
 
-const io = require('socket.io')(express_server);
+global.io = require('socket.io')(express_server);
 
 io.use(require('./middleware/socket-io/authenticator.js'));
 io.on('connection', require('./controllers/socket-io/socket.js'));
