@@ -15,11 +15,31 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
 }
 
 #depth {
-  background-color: #2ecc71;;
+  background-color: #2ecc71;
+}
+.card2{
+  background-color: #2ecc71;
 }
 
 #attentive {
   background: #e74c3c;
+}
+
+.activity {
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top:5px;
+  box-sizing: inherit;
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 10px;
+  transition: all .4s ease;
+  font-size: 18px;
+  color: #fff;
+  max-width:25%;
+  font-family: poppins,arial,helvetica neue,sans-serif;
+  border-radius: 5px;
+  background: #4272d7;
 }
 
 .navContainer { 
@@ -56,7 +76,6 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
   height: 5vh;
 }
 .card {
-  background-color: rgba(0, 181, 253, 0.787);
   padding: 1rem;
   border: none;
   height: fit-content;
