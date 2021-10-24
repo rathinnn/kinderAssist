@@ -11,21 +11,24 @@ module.exports = (socket) => {
 		});
 	} else if (socket.data.profession == 'student') {
 		socket.on('wrong_counting', (message) => {
-			console.log('wrong_counting', socket.data.username);
+			console.log('wrong_counting', socket.data.username, message);
 			io.to('teacher').emit('wrong_counting', {
-				name: socket.data.username
+				name: socket.data.username,
+				message: message
 			});
 		});
 		socket.on('distracted', (message) => {
-			console.log('distracted', socket.data.username);
+			console.log('distracted', socket.data.username, message);
 			io.to('teacher').emit('distracted', {
-				name: socket.data.username
+				name: socket.data.username,
+				message: message
 			});
 		});
 		socket.on('absent', (message) => {
-			console.log('absent', socket.data.username);
+			console.log('absent', socket.data.username, message);
 			io.to('teacher').emit('absent', {
-				name: socket.data.username
+				name: socket.data.username,
+				message: message
 			});
 		});
 	}
