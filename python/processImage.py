@@ -44,6 +44,7 @@ class Process():
         countfing = 0
         countatte = 0
         countpres = 0
+        prevfing = self.Counting
         #fps = FPS().start()
         while self.vid.isRunning():
             #fps._numFrames < 100:
@@ -53,18 +54,26 @@ class Process():
             frame2 = self.vid.read()
             #self.vid.sem.release()
             count = self.handDetector.countFingers(frame)
-            attent = self.attentionDetector.predict(frame2)
-            presence = self.presenceDetector.predict(frame2)
+            #attent = self.attentionDetector.predict(frame2)
+            #presence = self.presenceDetector.predict(frame2)
 
-            '''if(count != self.Counting):
-                countfing = 0
+            if(countfing == 60 and count != self.Counting):
                 self.Counting = count
+                print(count)
+                #updateFinger(self.sio, count)
+
+            if(count != prevfing):
+                countfing = 0
+                prevfing = count
             else:
-                countfing += 1'''
+                countfing += 1
+
+            
+
             
             #fps.update()
 
-            print(presence)
+            #print(presence)
             #print(attentCode[attent])
             #if(count != currentNumber):
             #    print('Not Equal')
