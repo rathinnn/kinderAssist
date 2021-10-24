@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
 
 body {
-  background: url(https://image.freepik.com/free-photo/empty-blackboard_53876-31358.jpg);
+  background: url(https://media.istockphoto.com/photos/creative-education-background-picture-id1192265107?k=20&m=1192265107&s=170667a&w=0&h=JV9rDDwHjFUMYjm8hY979cE8jxqqNpoTNFUHEGiIc0s=);
   background-size: cover;
   height: 100vh;
   font-family: "Montserrat", sans-serif;
@@ -12,7 +12,11 @@ body {
 .row{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .row-space{-webkit-box-pack:justify;-webkit-justify-content:space-between;-moz-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
 .col-2{
-  width:-webkit-calc((100% - 30px)/2);width:-moz-calc((100% - 30px)/2);width:calc((100% - 30px)/2)
+  width: 45%;
+  margin-left: 10px;
+}
+.col-4{
+  width:100%;
 }
 @media(max-width:767px){.col-2{width:100%}}
 

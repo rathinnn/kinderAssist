@@ -1,109 +1,108 @@
-<header>
-	<div class="navContainer">
-		<div class="nav-buttons">
-			<form class="logout-form" action = '/logout' method = 'post'>
-				<input class="submitIt" type = 'submit' value = 'logout'>
-			</form>
-		</div>
-	</div>
-</header>
-<body>
-	<center><h1>User Homepage</h1>
-	<h2>Defaulter's List</h2></center>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<div style="text-align:center; ">
-		<button id="first" class="tgl_btn btn btn-1 btn-sep icon-info">Show finger</button>
-		<button id="second" class="tgl_btn btn btn-2 btn-sep icon-cart">Show Asleep</button>
-		<button id="third" class="tgl_btn btn btn-3 btn-sep icon-heart">Show attentive</button>
-		<button id="fourth" class="tgl_btn btn btn-4 btn-sep icon-send">Show alphabet</button>
-	</div>
-<div style="text-align:center; margin:1vh">
-<div id="finger" style="display:none; border-radius: 1rem;">
-		<h2><center>Finger Counting</center></h2>
-		<div class="card">
-			<div class="card-body">
-				<div id="finger_content" class="notif-display">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
-				</div>
-			</div>
-		</div>
-	</div>
-<div id="depth" style="display:none; border-radius: 1rem;">
-		<h2><center>Attentiveness Checker</center></h2>
-		<div class="card">
-			<div class="card-body">
-				<div id="sleep_content" class="notif-display">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="attentive" style="display:none; border-radius: 1rem;">
-		<h2><center>Smart Attendance</center></h2>
-		<div class="card card3">
-			<div class="card-body">
-				<div id="smart_content" class="notif-display">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
-					<p>
-						<div style="display:inline-block">Sassy is</div>
-						<div style="display:inline-block">Distracted</div></p>
-						<p>
-						<div>Sashmita is</div>
-						<div>Good</div></p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="alphabet" style="display:none; border-radius: 1rem;">
-		<h2><center>Alphabet</center></h2>
-		<div class="card card4">
-			<div class="card-body">
-				<div class="notif-display">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<form id="form-msg" action="">
-<input id="input-msg" autocomplete="on" /><button>Send</button>
-</form>
+	<header>
+		<div class="navContainer">
+			<div class="nav-buttons">
+				<form class="logout-form" action = '/logout' method = 'post'>
+					<input class="submitIt" type = 'submit' value = 'LOG OUT'>
+				</form>
+			</div>		
+		</div>		
+	</header>
+	<body>
+		<center><h1 style="color: white;">User Homepage</h1>	
+		<h2 style="color: white;">Defaulter's List</h2></center>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-	var option="";
-	const togglebtn1 = document.getElementById("first");
-	const togglebtn2 = document.getElementById("second");
-	const togglebtn3 = document.getElementById("third");
-	const togglebtn4 = document.getElementById("fourth");
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<div style="text-align:center; ">
+			<button id="first" class="tgl_btn btn btn-1 btn-sep icon-info">Show finger</button>
+			<button id="second" class="tgl_btn btn btn-2 btn-sep icon-cart">Show Asleep</button>
+			<button id="third" class="tgl_btn btn btn-3 btn-sep icon-heart">Show attentive</button>
+			<button id="fourth" class="tgl_btn btn btn-4 btn-sep icon-send">Show alphabet</button>
+		</div>
+
+	<div style="text-align:center; margin:1vh">
+    <div id="finger" style="display:none; border-radius: 1rem;">
+			<h2><center>Finger Counting</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div id="finger_content" class="notif-display">						
+					</div>
+				</div>
+			</div>
+		</div>
+    <div id="depth" style="display:none; border-radius: 1rem;">
+			<h2><center>Attentiveness Checker</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div id="sleep_content" class="notif-display">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="attentive" style="display:none; border-radius: 1rem;">
+			<h2><center>Smart Attendance</center></h2>
+			<div class="card card3">
+				<div class="card-body">
+					<div id="smart_content" class="notif-display">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="alphabet" style="display:none; border-radius: 1rem;">
+			<h2><center>Alphabet</center></h2>
+			<div class="card card4">
+				<div class="card-body">
+					<div class="notif-display">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
+					</div>
+				</div>
+			</div>
+		</div>
+</div>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var option="";
+
+		const togglebtn1 = document.getElementById("first");
+		const togglebtn2 = document.getElementById("second");
+		const togglebtn3 = document.getElementById("third");
+		const togglebtn4 = document.getElementById("fourth");
+		
+
+	
 	var finger_msg = document.getElementById('finger_content');
 	var sleep_msg = document.getElementById('sleep_content');
 	var smart_msg = document.getElementById('smart_content');
 	var brk = document.createElement('br')
+
 	let authObj = {};
-	fetch('/socket_token', {credentials: 'same-origin'}).then((response) => {
-		return response.json();
-	}).then((data) => {
-		authObj = data;
-	}).then(() => {
-		const socket = io({
-			auth: {
-				username: authObj.username,
-				session_id: authObj.session_id,
-				profession: authObj.profession
-			}
-		});
+    fetch('/socket_token', {credentials: 'same-origin'}).then((response) => {
+        return response.json();
+    }).then((data) => {
+        // console.log(data);
+        authObj = data;
+    }).then(() => {
+        const socket = io({
+            auth: {
+                    username: authObj.username,
+                    session_id: authObj.session_id,
+                    profession: authObj.profession
+            }
+    });
+  /// here
 		socket.on('connect', () => {
 				console.log('connected');
 		});
+		
 		socket.on('connect_error', () => {
 				console.log('connection_error');
 		});
+		
 		socket.on('disconnect', (reason) => {
 				console.log(reason);
 		});
+			
 		togglebtn1.onclick = function () {
 			if (document.getElementById("finger").style.display !== "none") {
 				document.getElementById("finger").style.display = "none";
@@ -112,7 +111,7 @@
 				document.getElementById("depth").style.display = "none";
 				document.getElementById("attentive").style.display = "none";
 				document.getElementById("alphabet").style.display = "none";
-				socket.emit('update_option', 'num:1');
+				socket.emit('updateOption', 'num:1');
 			}
 		};
 		togglebtn2.onclick = function () {
@@ -123,7 +122,7 @@
 				document.getElementById("attentive").style.display = "none";
 				document.getElementById("alphabet").style.display = "none";
 				document.getElementById("finger").style.display = "none";
-				socket.emit('update_option', 'num:2');
+				socket.emit('updateOption', 'num:2');
 			}
 		};
 		togglebtn3.onclick = function () {
@@ -134,7 +133,7 @@
 				document.getElementById("alphabet").style.display = "none";
 				document.getElementById("finger").style.display = "none";
 				document.getElementById("depth").style.display = "none";
-				socket.emit('update_option', 'num:3');
+				socket.emit('updateOption', 'num:3');
 			}
 		};
 		togglebtn4.onclick = function () {
@@ -147,14 +146,17 @@
 				document.getElementById("attentive").style.display = "none";
 			}
 		};
+
 		$(".tgl_btn").click(function () {
-			if(("#" + this.id).disable) {
-				$("#" + this.id).prop('disabled', false);
-				$(".tgl_btn").not(this).prop('disabled', true);
-			}
-		});
+				if(("#" + this.id).disable) {
+					$("#" + this.id).prop('disabled', false);
+        	$(".tgl_btn").not(this).prop('disabled', true);
+				}
+    });
+		
 		var form = document.getElementById('form-msg');
 		var input = document.getElementById('input-msg');
+		
 		form.addEventListener('submit', function(e) {
 			e.preventDefault();
 			if (input.value) {
@@ -168,33 +170,40 @@
 			activityItem.setAttribute("class", "activity");
 			nameItem.textContent = input.value+" is ";
 			console.log("activity",activityItem);
-			activityItem.textContent = " " + input.value;
+			activityItem.textContent = " "+input.value;
 			finger_msg.appendChild(nameItem);
 			finger_msg.appendChild(activityItem);
 			finger_msg.appendChild(brk);
 			window.scrollTo(0, document.body.scrollHeight);
 			}
 		});
+
 		socket.on('wrong_counting', (message) => {
 			console.log(message.name, 'wrong counting');
-			var student = document.getElementById("count_" + message.name);
+			var student = document.getElementById("count_"+message.name);
 			if(student){
-				if {
-					(message.value) student.textContent = "Wrong";
-				} else {
-					student.textContent = "Correct";
+				if(message.value) {
+					student.textContent = "Wrong";
 				}
-			} else {
+				else {
+					student.textContent = "Correct";		
+				}		
+				
+				}
+			else {
 				var nameItem = document.createElement('div');
 				nameItem.setAttribute("id", message.name);
 				nameItem.style.display = 'inline-block';
 				nameItem.textContent = message.name+" is";
+
 				var activityItem = document.createElement('div');
 				activityItem.style.display = 'inline-block';
 				activityItem.setAttribute("id", "count_"+message.name);
+				activityItem.setAttribute("class", "activity");
 				if(message.value) {
 					activityItem.textContent = "Wrong";
-				} else {
+				}
+				else {
 					activityItem.textContent = "Correct";
 				}
 				finger_msg.appendChild(nameItem);
@@ -202,12 +211,13 @@
 				finger_msg.appendChild(brk);
 			}
 		});
+
 		socket.on('distracted', (message) => {
 			console.log(message.name, 'sleeping');
 			var student = document.getElementById("sleep_"+message.name);
-			if(student) {
-				if(message.value == 0) {
-					student.textContent = "Distracted";
+			if(student){
+				if(message.value == 0){
+				student.textContent = "Distracted";
 				}
 				else if(message.value == 1){
 					student.textContent = "Asleep";
@@ -215,20 +225,24 @@
 				else if(message.value == 2) {
 					student.textContent = "Good"
 				}
-			}
+			}    	
 			else {
 				var nameItem = document.createElement('div');
 				nameItem.setAttribute("id", message.name);
 				nameItem.style.display = 'inline-block';
 				nameItem.textContent = message.name+" is";
+
 				var activityItem = document.createElement('div');
-				activityItem.style.display = 'inline-block';
-				activityItem.setAttribute("id", "sleep_" + message.name);
+				activityItem.style.display = 'inline-block';				
+				activityItem.setAttribute("id", "sleep_"+message.name);
+				activityItem.setAttribute("class", "activity");
 				if(message.value == 0){
 					activityItem.textContent = "Distracted";
-				} else if (message.value == 1) {
+				}
+				else if(message.value == 1){
 					activityItem.textContent = "Sleeping";
-				} else if (message.value == 2) {
+				}
+				else if(message.value == 2) {
 					activityItem.textContent = "Good"
 				}
 				sleep_msg.appendChild(nameItem);
@@ -236,34 +250,38 @@
 				sleep_msg.appendChild(brk);
 			}
 		});
+
 		socket.on('absent', (message) => {
-			console.log(message.name, 'absent');
-			var student = document.getElementById("absent_"+message.name);
-			if(student){
-				if (message.value) {
-					student.textContent = "Absent";
-				} else {
-					student.textContent = "Present";
-				}
-			} else {
-				var nameItem = document.createElement('div');
-				nameItem.setAttribute("id", message.name);
-				nameItem.style.display = 'inline-block';
-				nameItem.textContent = message.name + " is";
-				var activityItem = document.createElement('div');
-				activityItem.style.display = 'inline-block';
-				activityItem.setAttribute("id", "absent_" + message.name);
-				if(message.value) {
-					student.textContent = "Absent";
-				} else {
-					student.textContent = "Present";
-				}
-				smart_msg.appendChild(nameItem);
-				smart_msg.appendChild(activityItem);
-				smart_msg.appendChild(brk);
+		console.log(message.name, 'absent');
+		var student = document.getElementById("absent_"+message.name);
+		if(student){
+			if(message.value) student.textContent = "Absent";
+			else student.textContent = "Present";				
+			
 			}
-		});
+		else {
+			var nameItem = document.createElement('div');
+			nameItem.setAttribute("id", message.name);
+			nameItem.style.display = 'inline-block';
+			nameItem.textContent = message.name+" is";
+
+			var activityItem = document.createElement('div');
+			activityItem.setAttribute("class", "activity");
+			activityItem.style.display = 'inline-block';
+			activityItem.setAttribute("id", "absent_"+message.name);
+			if(message.value) {
+				student.textContent = "Absent";
+			}
+			else {
+				student.textContent = "Present";
+			}
+			smart_msg.appendChild(nameItem);
+			smart_msg.appendChild(activityItem);
+			smart_msg.appendChild(brk);
+		}});
+
 	});
-</script>
-</body>
-<link rel="stylesheet" href="/stylesheets/userhomepage.css" />
+	</script>
+	</body>
+	<link rel="stylesheet" href="/stylesheets/userhomepage.css" />
+
