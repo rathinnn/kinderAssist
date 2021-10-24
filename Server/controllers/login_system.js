@@ -28,9 +28,11 @@ controllers.login = async (request, response) => {
 		if (results.length == 1) {
 			const temp = helpers.random_string_generator(session_id_length);
 			response.cookie('username', request.body.username, {
+				httpOnly: true,
 				sameSite: true
 			});
 			response.cookie('session_id', temp, {
+				httpOnly: true,
 				sameSite: true
 			});
 			await db_query('UPDATE users SET session_id = ? WHERE username = ?', [temp, request.body.username]);
