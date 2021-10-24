@@ -59,8 +59,8 @@ class Process():
 
             if(countfing == 60 and count != self.Counting):
                 self.Counting = count
-                print(count)
-                #updateFinger(self.sio, count)
+                #print(count)
+                self.updateFinger(self.sio, count)
 
             if(count != prevfing):
                 countfing = 0
@@ -87,12 +87,12 @@ class Process():
         #print("[INFO] approx. FPS: {:.2f}".format(fps.fps()))
         self.vid.stop()
 
-    def updateFinger(sio, bool):
+    def updateFinger(self, sio, bool):
         sio.emit('wrong_counting', {'val': str(bool)})
     
-    def updateDistract(sio, code):
+    def updateDistract(self, sio, code):
         sio.emit('distracted', {'val': str(code)})
     
-    def updatePresence(sio, bool):
+    def updatePresence(self, sio, bool):
         sio.emit('absent', {'val': str(not bool)})
 
