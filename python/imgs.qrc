@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>resource/pyBack.jpg</file>
+  </qresource>
+</RCC>
