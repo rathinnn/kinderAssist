@@ -1,7 +1,221 @@
-<html>
+	<header>
+		<div class="navContainer">
+			<div class="nav-buttons">
+				<form class="logout-form" action = '/logout' method = 'post'>
+					<input class="submitIt" type = 'submit' value = 'logout'>
+				</form>
+			</div>		
+		</div>		
+	</header>
 	<body>
-		<form action = '/logout' method = 'post'>
-			<input type = 'submit' value = 'logout'>
-		</form>
+		<center><h1>User Homepage</h1>	
+		<h2>Defaulter's List</h2></center>
+
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<div style="text-align:center; ">
+			<button id="first" class="tgl_btn btn btn-1 btn-sep icon-info">Show finger</button>
+			<button id="second" class="tgl_btn btn btn-2 btn-sep icon-cart">Show Asleep</button>
+			<button id="third" class="tgl_btn btn btn-3 btn-sep icon-heart">Show attentive</button>
+			<button id="fourth" class="tgl_btn btn btn-4 btn-sep icon-send">Show alphabet</button>
+		</div>
+
+	<div style="text-align:center; margin:1vh">
+    <div id="finger" style="display:none; border-radius: 1rem;">
+			<h2><center>Finger Counting</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div id="finger_content" class="notif-display">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
+					</div>
+				</div>
+			</div>
+		</div>
+    <div id="depth" style="display:none; border-radius: 1rem;">
+			<h2><center>Sleep Checker</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div class="notif-display">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="attentive" style="display:none; border-radius: 1rem;">
+			<h2><center>Check Attentiveness</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div class="notif-display">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
+						<p>
+							<div style="display:inline-block">Sassy is</div> 
+							<div style="display:inline-block">Distracted</div></p>
+							<p>
+								<div>Sashmita is</div> 
+								<div>Good</div></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="alphabet" style="display:none; border-radius: 1rem;">
+			<h2><center>Alphabet</center></h2>
+			<div class="card">
+				<div class="card-body">
+					<div class="notif-display">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt efficitur orci. Integer non mauris finibus, egestas urna a, venenatis felis. Praesent fringilla in ligula vel ultrices. Curabitur sit amet velit velit. Aenean convallis mauris eget lectus placerat suscipit. In ac finibus neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. In interdum placerat luctus.
+					</div>
+				</div>
+			</div>
+		</div>
+</div>  
+<form id="form-msg" action="">
+	<input id="input-msg" autocomplete="on" /><button>Send</button>
+</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		var option="";
+
+		const togglebtn1 = document.getElementById("first");
+		const togglebtn2 = document.getElementById("second");
+		const togglebtn3 = document.getElementById("third");
+		const togglebtn4 = document.getElementById("fourth");
+		togglebtn1.onclick = function () {
+			if (document.getElementById("finger").style.display !== "none") {
+				document.getElementById("finger").style.display = "none";
+			} else {
+				document.getElementById("finger").style.display = "inline-block";
+				document.getElementById("depth").style.display = "none";
+				document.getElementById("attentive").style.display = "none";
+				document.getElementById("alphabet").style.display = "none";
+				socket.emit('updateOption', 'num:1');
+			}
+		};
+		togglebtn2.onclick = function () {
+			if (document.getElementById("depth").style.display !== "none") {
+				document.getElementById("depth").style.display = "none";
+			} else {
+				document.getElementById("depth").style.display = "inline-block";
+				document.getElementById("attentive").style.display = "none";
+				document.getElementById("alphabet").style.display = "none";
+				document.getElementById("finger").style.display = "none";
+				socket.emit('updateOption', 'num:2');
+			}
+		};
+		togglebtn3.onclick = function () {
+			if (document.getElementById("attentive").style.display !== "none") {
+				document.getElementById("attentive").style.display = "none";
+			} else {
+				document.getElementById("attentive").style.display = "inline-block";
+				document.getElementById("alphabet").style.display = "none";
+				document.getElementById("finger").style.display = "none";
+				document.getElementById("depth").style.display = "none";
+				socket.emit('updateOption', 'num:3');
+			}
+		};
+		togglebtn4.onclick = function () {
+			if (document.getElementById("alphabet").style.display !== "none") {
+				document.getElementById("alphabet").style.display = "none";
+			} else {
+				document.getElementById("alphabet").style.display = "inline-block";
+				document.getElementById("finger").style.display = "none";
+				document.getElementById("depth").style.display = "none";
+				document.getElementById("attentive").style.display = "none";
+			}
+		};
+
+		$(".tgl_btn").click(function () {
+				if(("#" + this.id).disable) {
+					$("#" + this.id).prop('disabled', false);
+        	$(".tgl_btn").not(this).prop('disabled', true);
+				}
+    });
+		
+		var form = document.getElementById('form-msg');
+		var input = document.getElementById('input-msg');
+		var finger_msg = document.getElementById('finger_content');
+		
+		form.addEventListener('submit', function(e) {
+			e.preventDefault();
+			if (input.value) {
+			console.log('submitted');
+			var nameItem = document.createElement('div');
+			var activityItem = document.createElement('div');
+			var brk = document.createElement('br')
+			nameItem.style.display = 'inline-block';
+			activityItem.style.display = 'inline-block';
+			nameItem.textContent = input.value+" is ";
+			activityItem.textContent = " "+input.value;
+			finger_msg.appendChild(nameItem);
+			finger_msg.appendChild(activityItem);
+			finger_msg.appendChild(brk);
+			window.scrollTo(0, document.body.scrollHeight);
+			}
+		});
+
+		// socket.on('absent', function(name) {
+		// 	var item = document.createElement('li');
+		// 	item.textContent = name;
+		// 	messages.appendChild(item);
+		// 	window.scrollTo(0, document.body.scrollHeight);
+		// });
+	</script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	const socket = io({
+			auth: {
+					username: 'sashmita',
+					session_id: 'sashmita',
+					profession: 'teacher'
+			}
+	});
+	
+	var jsonObj = [
+		{'name':'Ray',
+		'attendCode':'0',
+		'numbers':'true',
+		'presence':'true',
+		}]
+
+	var flag = 0;
+	socket.on('connect', () => {
+			console.log('connected');
+	});
+	
+	socket.on('connect_error', () => {
+			console.log('connection_error');
+	});
+	
+	socket.on('disconnect', (reason) => {
+			console.log(reason);
+	});
+	
+	socket.on('sleeping', (message) => {
+			flag = 0;
+			console.log(message.name, 'sleeping');
+			jsonObj.forEach(student => {
+			if(student.name == 'name') {
+				flag = 1;
+				student.sleeping = message.val;
+			}
+			});
+			if(flag == 0) {
+
+			}
+	});
+	socket.on('wrong_counting', (message) => {
+			console.log(message.name, 'wrong counting');
+	});
+	socket.on('too_close', (message) => {
+			console.log(message.name, 'too_close');
+	});
+	socket.on('absent', (message) => {
+			console.log(message.name, 'absent');
+	});
+	socket.on('looking_away', (message) => {
+			console.log(message.name, 'looking away');
+	});
+	</script>
 	</body>
-</html>
+	<link rel="stylesheet" href="/stylesheets/userhomepage.css" />
+
