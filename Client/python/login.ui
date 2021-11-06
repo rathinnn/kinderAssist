@@ -173,7 +173,9 @@ QPushButton#loginBtn:hover{
      </property>
      <property name="styleSheet">
       <string notr="true">color:  rgba(85, 98, 112, 255);
-background-color: rgba(255, 107, 107, 255);</string>
+background-color: #FBAB7E;
+
+</string>
      </property>
      <property name="text">
       <string>x</string>
@@ -200,7 +202,11 @@ background-color: rgba(255, 107, 107, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(85, 98, 112, 255), stop:1 rgba(255, 107, 107, 255));
+     <string notr="true">
+background-color: #FBAB7E;
+background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+
+
 border-radius: 15px;
 </string>
     </property>
@@ -210,38 +216,6 @@ border-radius: 15px;
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>200</y>
-       <width>341</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Mountain</family>
-       <pointsize>206</pointsize>
-      </font>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color:rgba(85, 98, 112, 255);
-background-color: rgba(0,0,0,0%);</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="text">
-      <string>1</string>
-     </property>
-    </widget>
    </widget>
   </widget>
  </widget>

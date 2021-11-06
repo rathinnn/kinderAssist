@@ -55,19 +55,19 @@ class LoginScreen(QDialog):
     
     def authenticate(self, username, password):
         curSession = requests.Session() 
-        print(username)
-        print(password)
-        response = curSession.post("http://localhost:8080/login", data={'username': 'rat', 'password': 'rat'})
-        print(response.status_code)
-        print(response.text)
+        #print(username)
+        #print(password)
+        response = curSession.post("http://localhost:8080/login", data={'username': username, 'password': password})
+        #print(response.status_code)
+        #print(response.text)
         if response.status_code == 401:
             self.error.setText("Invalid username or password")
             return False
 
         response2 = curSession.get("http://localhost:8080/socket_token/")
-        print(response2.status_code)
+        #print(response2.status_code)
         response2 = response2.json()
-        print(response2)
+        #print(response2)
         self.loggedUsername = response2['username']
         self.session_id = response2['session_id']
         #self.loggedUsername = 'adfads'
@@ -86,8 +86,8 @@ class Home(QDialog):
         super(Home, self).__init__()
         loadUi("home.ui",self)
 
-        self.authe = {'username' : username, 'session_id' : session_id}
-        print(session_id)
+        self.authe = {'username' : username, 'session_id' : session_id, 'profession': 'student'}
+        #print(username)
         sio.connect('http://localhost:8080', auth = self.authe)
         self.thread = VideoThread()
         self.thread.change_pixmap_signal.connect(self.update_image)
@@ -95,7 +95,7 @@ class Home(QDialog):
         self.thread.start()
         self.username = username
         self.session_id = session_id
-        self.process = Process(sio, self.thread)
+        self.process = Process(sio, self.thread, self)
         self.process.startStream()
         
         
