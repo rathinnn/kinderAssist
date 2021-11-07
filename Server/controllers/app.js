@@ -1,7 +1,7 @@
 const controllers = {};
 
 controllers.get_user_home = async (request, response) => {
-	response.render('userhomepage.ejs');
+	response.render('test.ejs');
 }
 
 controllers.socket_token = async (request, response) => {

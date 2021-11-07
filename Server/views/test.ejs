@@ -1,0 +1,44 @@
+<html>
+	<body>
+		<script src = '/socket.io/socket.io.js'></script>
+		<script>
+			let credentials = {};
+			fetch('/socket_token', {
+				credentials: 'same-origin'
+			}).then((response) => {
+				return response.json();
+			}).then((data) => {
+				credentials = data;
+			}).then(() => {
+				const socket = io({
+					auth: {
+						username: credentials.username,
+						session_id: credentials.session_id,
+						profession: credentials.profession
+					}
+				});
+				socket.on('connect', () => {
+					console.log('connected');
+				});
+				socket.on('connect_error', () => {
+					console.log('connection_error');
+				});
+				socket.on('disconnect', (error) => {
+					console.log(error);
+				});
+				socket.emit('updateOption', 'num:1');
+				socket.emit('updateOption', 'num:2');
+				socket.emit('updateOption', 'num:3');
+				socket.on('wrong_counting', (message) => {
+					console.log(message);
+				});
+				socket.on('distracted', (message) => {
+					console.log(message);
+				});
+				socket.on('absent', (message) => {
+					console.log(message);
+				});
+			});
+		</script>
+	</body>
+</html>
