@@ -1,54 +1,104 @@
-<html>
-	<body>
-		<div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
-		<div class="wrapper wrapper--w680">
-			<div class="card card-4">
-			<div class="card-body">
-			<center><h2 class="title">Sign Up Form</h2></center>
-			<form method="POST">
-			<div class="row row-space">
-				<div class="col-4">
-					<div class="input-group">
-					<label class="label">Username</label>
-					<input class="input--style-4" type = 'text' name = 'username' placeholder = 'username' required>
-					</div>
-				</div>			
-			</div>
-			<div class="row row-space">
-				<div class="row row-space">
-						<div class="col-2">
-							<div class="input-group">
-								<label class="label">Password</label>
-								<input class="input--style-4" type = 'password' name = 'password' placeholder = 'password' required>
-							</div>
-						</div>
-						<div class="col-2">
-							<div class="input-group">
-								<label class="label">Retype - Password</label>
-								<input class="input--style-4" type = 'password' name = 'check_password' placeholder = 'retype-password' required>
-							</div>
-						</div>
-					</div>
-				<div class="input-group">
-					<label class="label">Profession</label>
-					<div class="input--style-4">
-						<select id="profession" name="profession" tabindex="-1"  aria-hidden="true">
-							<option disabled="disabled" selected="selected">Choose option</option>
-							<option value="teacher">Teacher</option>
-							<option value="student">Student</option>
-						</select>
-					<div class="select-dropdown"></div>
-					
-					
-				</div>
-				<div class="p-t-15">
-					<button class="btn btn--radius-2 btn--blue" type="submit" value = 'signup'>Submit</button>
-				</div>
-			</form>
-			</div>
-			</div>
-			</div>
-			</div>
-	</body>
-	<link rel="stylesheet" href="/stylesheets/signuppage.css" />
-</html>
+<body>
+  <div class="page-wrap">
+      
+    <div class="left-panel">
+      <div class="illustration">
+        <img src="/img/Learning-amico.png" alt="Illustration" class="image" />
+      </div>
+      <h2>KinderAssist</h2>
+      <h3>Teaching made easy</h3>
+    </div>
+  
+    <div class="right-panel">
+      <h1>
+        <strong>Welcome,</strong>
+        Stranger
+      </h1>
+      <form class="animated-form" method="POST">
+        <h3>Create an account</h3>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" class="username" name = 'username' required/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="password" name = 'password' required/>
+        </div>
+        <div class="form-group">
+          <label for="password">Retype Password</label>
+          <input type="password" id="password" class="password" name = 'check_password' required/>
+        </div>
+        <label class="custom-select">
+          Profession
+          <select id="profession" name="profession">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+          </select>
+        </label>
+        <div class="form-group flex-end">
+          <input type="submit" value="SIGNUP" class="button" />
+        </div>
+      </form>
+    </div>
+  
+  </div>
+  
+  <script type="text/javascript">
+    let input_fields = document.querySelectorAll('input');
+    
+    for (let i = 0; i < input_fields.length; i++) {
+      let field = input_fields[i];
+      field.addEventListener('input', function (e) {
+        if (e.target.value != "") {
+          e.target.parentNode.classList.add('has-content');
+        } else if (e.target.value == "") {
+          e.target.parentNode.classList.remove('has-content');
+        }
+      });
+    }
+
+    document.querySelectorAll('.custom-select').forEach(setupSelector);
+
+    function setupSelector(selector) {
+      selector.addEventListener('change', e => {
+        console.log('changed', e.target.value)
+      })
+
+      selector.addEventListener('mousedown', e => {
+        if(window.innerWidth >= 420) {// override look for non mobile
+          e.preventDefault();
+
+          const select = selector.children[0];
+          const dropDown = document.createElement('ul');
+          dropDown.className = "selector-options";
+
+          [...select.children].forEach(option => {
+            const dropDownOption = document.createElement('li');
+            dropDownOption.textContent = option.textContent;
+
+            dropDownOption.addEventListener('mousedown', (e) => {
+              e.stopPropagation();
+              select.value = option.value;
+              selector.value = option.value;
+              select.dispatchEvent(new Event('change'));
+              selector.dispatchEvent(new Event('change'));
+              dropDown.remove();
+            });
+
+            dropDown.appendChild(dropDownOption);   
+          });
+
+          selector.appendChild(dropDown);
+
+          // handle click out
+          document.addEventListener('click', (e) => {
+            if(!selector.contains(e.target)) {
+              dropDown.remove();
+            }
+          });
+        }
+      });
+    }
+  </script>
+  </body>
+  <link rel="stylesheet" href="/stylesheets/loginModern.css" />
