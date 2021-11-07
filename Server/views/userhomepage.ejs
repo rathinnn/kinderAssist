@@ -59,6 +59,9 @@
 			</div>
 		</div>
 </div>  
+<!-- <form id="form-msg" action="">
+	<input id="input-msg" autocomplete="on" /><button>Send</button>
+</form> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
@@ -255,10 +258,13 @@
 		console.log(message.name, 'absent');
 		var student = document.getElementById("absent_"+message.name);
 		if(student){
-			if(message.value) student.textContent = "Absent";
-			else student.textContent = "Present";				
-			
+			if(message.value) {
+				student.textContent = "Absent";
 			}
+			else {
+				student.textContent = "Present";
+			}							
+		}
 		else {
 			var nameItem = document.createElement('div');
 			nameItem.setAttribute("id", message.name);
