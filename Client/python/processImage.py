@@ -2,8 +2,8 @@ from ML import HandDetector
 from ML import AttentionDetector, PresenceDetector
 from threading import Thread
 from imutils.video import FPS
-currentOption = 2
-currentNumber = 4
+currentOption = 1
+currentNumber = 3
 
 attentCode = {0:'Distracted', 1:'Sleeping', 2:'Good'}
 class Process():
@@ -24,8 +24,10 @@ class Process():
         @sio.on('update_option')
         def on_update(data):
             global currentOption
+            print('Update Option')
             print(data)
             currentOption = int(data[-1])
+            print(currentOption)
         
         @sio.on('updateNumber')
         def on_update(data):
@@ -83,13 +85,13 @@ class Process():
     
     def optionFinger(self, frame):
         counts = self.handDetector.countFingers(frame)
-        print(counts)
+        #print(counts)
         if(counts != currentNumber):
             count = True
         else:
             count = False
             
-        if(self.countfing == 40 and count != self.Counting):
+        if(self.countfing == 20 and count != self.Counting):
             self.Counting = count
             self.updateFinger(self.sio, count)
 
@@ -111,7 +113,7 @@ class Process():
     def optionDistract(self, frame):
 
         attent = self.attentionDetector.predict(frame)
-        print(attent)
+        #print(attent)
         
         if(self.countatte == 20 and attent != self.attent):
             self.attent = attent
